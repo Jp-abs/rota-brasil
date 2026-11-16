@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Ilustração de praia ao pôr do sol com coqueiros">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9e5e"/><stop offset="0.6" stop-color="#ffd08a"/><stop offset="1" stop-color="#ffe9bf"/></linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b8fb3"/><stop offset="1" stop-color="#0a5c7a"/></linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#sky)"/>
+  <circle cx="560" cy="210" r="70" fill="#fff4d6"/>
+  <rect y="230" width="800" height="130" fill="url(#sea)"/>
+  <path d="M0 260 Q50 250 100 260 T200 260 T300 260 T400 260 T500 260 T600 260 T700 260 T800 260" stroke="#7fd3ea" stroke-width="3" fill="none"/>
+  <path d="M0 295 Q60 285 120 295 T240 295 T360 295 T480 295 T600 295 T720 295 T840 295" stroke="#7fd3ea" stroke-width="3" fill="none"/>
+  <path d="M0 340 Q200 320 400 345 T800 335 V450 H0 Z" fill="#f3d9a4"/>
+  <g stroke="#5a3b1e" stroke-width="10" fill="none" stroke-linecap="round"><path d="M130 420 Q150 330 140 250"/><path d="M670 430 Q640 340 655 270"/></g>
+  <g fill="#17704f">
+    <path d="M140 250 Q90 230 55 255 Q100 245 140 255Z"/><path d="M140 250 Q185 220 230 240 Q185 240 140 255Z"/><path d="M140 250 Q120 205 85 200 Q125 215 140 255Z"/>
+    <path d="M655 270 Q610 250 575 275 Q620 265 655 275Z"/><path d="M655 270 Q700 240 745 262 Q700 262 655 275Z"/><path d="M655 270 Q640 225 605 220 Q645 235 655 275Z"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Ilustração de montanhas e cachoeira na Chapada">
+  <defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5aa9d6"/><stop offset="1" stop-color="#d7eefa"/></linearGradient></defs>
+  <rect width="800" height="450" fill="url(#s)"/>
+  <circle cx="650" cy="90" r="40" fill="#fff6c9"/>
+  <path d="M0 300 L150 140 L260 250 L380 100 L520 270 L640 160 L800 300 V450 H0Z" fill="#8a6a4f"/>
+  <path d="M380 100 L340 150 L370 140 L395 165 L420 140 L440 150Z" fill="#ffffff"/>
+  <path d="M0 360 Q200 300 400 350 T800 340 V450 H0Z" fill="#17704f"/>
+  <path d="M420 270 V400" stroke="#e8f6fc" stroke-width="22" stroke-linecap="round"/>
+  <ellipse cx="420" cy="405" rx="55" ry="14" fill="#bfe6f5"/>
+</svg>

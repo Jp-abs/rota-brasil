@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Ilustração do Pantanal com aves e lago ao entardecer">
+  <defs><linearGradient id="p" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7b267"/><stop offset="1" stop-color="#fbe6b8"/></linearGradient></defs>
+  <rect width="800" height="450" fill="url(#p)"/>
+  <circle cx="400" cy="230" r="60" fill="#fff0c4"/>
+  <rect y="250" width="800" height="200" fill="#3a9fbf"/>
+  <rect y="250" width="800" height="12" fill="#7fd3ea" opacity="0.7"/>
+  <path d="M0 360 Q200 330 400 365 T800 350 V450 H0Z" fill="#6b8e3f"/>
+  <g stroke="#14213d" stroke-width="3" fill="none" stroke-linecap="round"><path d="M520 120 q15 -15 30 0 q15 -15 30 0"/><path d="M600 160 q10 -10 20 0 q10 -10 20 0"/><path d="M200 140 q12 -12 24 0 q12 -12 24 0"/></g>
+  <g stroke="#14213d" stroke-width="6" fill="none" stroke-linecap="round"><path d="M180 330 V270"/><path d="M180 270 q-10 -30 10 -35"/></g>
+  <circle cx="190" cy="232" r="6" fill="#14213d"/>
+  <path d="M190 232 l22 4" stroke="#b83c08" stroke-width="4"/>
+</svg>
