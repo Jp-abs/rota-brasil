@@ -45,20 +45,7 @@ rota-brasil/
     └── pantanal.svg
 ```
 
-## 3. Como executar
-
-Não há dependências nem etapa de build.
-
-1. Baixe ou clone a pasta `rota-brasil`.
-2. Dê dois cliques em `index.html` (abre no navegador) **ou** rode um servidor local:
-   ```bash
-   cd rota-brasil
-   python3 -m http.server 8000
-   ```
-   e acesse `http://localhost:8000`.
-3. Para publicar: GitHub → *Settings → Pages → Deploy from branch (main, /root)*. O endereço será `https://SEU-USUARIO.github.io/rota-brasil/`.
-
-## 4. Construção passo a passo
+## 3. Construção passo a passo
 
 ### Passo 1 – Planejamento
 Definição do tema (turismo no Brasil), público (viajantes de todas as idades e habilidades), objetivos (descobrir destinos, filtrar, entrar em contato) e lista de requisitos do enunciado. Escolha das paletas (seção 5).
@@ -99,7 +86,7 @@ Três colunas: sobre o projeto, navegação e nota de acessibilidade.
 ### Passo 13 – Testes e análise de contraste
 Razões de contraste calculadas pela fórmula de luminância relativa da WCAG para todos os pares texto/fundo (seção 5). Na primeira análise, a borda dos campos de formulário não atingia 3:1 (1,75:1 no claro e 2,03:1 no escuro). Foi criada a variável `--border-ui` e o problema foi corrigido. Também foram verificados: navegação só por teclado, zoom de 200%, leitura de títulos e ordem de foco.
 
-## 5. Paletas de cores e contraste
+## 4. Paletas de cores e contraste
 
 | Papel | Claro | Escuro |
 |---|---|---|
@@ -115,7 +102,7 @@ Razões de contraste calculadas pela fórmula de luminância relativa da WCAG pa
 
 Razão mínima exigida pela WCAG 2.2 nível AA: **4,5:1** para texto normal, **3:1** para texto grande e componentes de interface.
 
-## 6. Checklist WCAG aplicado
+## 5. Checklist WCAG aplicado
 
 - 1.1.1 Conteúdo não textual: todas as imagens têm `alt` descritivo.
 - 1.3.1 Informação e relações: HTML semântico, `label` ligado a `input`.
@@ -134,9 +121,7 @@ Razão mínima exigida pela WCAG 2.2 nível AA: **4,5:1** para texto normal, **3
 
 Esta lista é uma autoavaliação. Uma conformidade completa exige testes com leitores de tela (NVDA, VoiceOver) e com pessoas usuárias.
 
-## 7. Versionamento com GitHub
-
-Sugestão de histórico de *commits* para mostrar a evolução do projeto:
+## 6. Versionamento com GitHub
 
 ```bash
 git init
@@ -150,9 +135,8 @@ git remote add origin https://github.com/SEU-USUARIO/rota-brasil.git
 git push -u origin main
 ```
 
-## 8. Limitações conhecidas
+## 7. Limitações conhecidas
 
-- As imagens são ilustrações SVG criadas para o projeto; em um site real seriam fotografias com direitos de uso.
+- As imagens são ilustrações SVG criadas para o projeto. em um site real seriam fotos com direitos de uso.
 - Formulário de contato e login não enviam dados a nenhum servidor.
-- Os dados de e-mail e telefone são fictícios.
 - Não foram feitos testes com leitores de tela reais.
