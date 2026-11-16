@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar – Rota Brasil</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      try {
+        var r = document.documentElement, t = localStorage.getItem("rb-theme");
+        if (!t && window.matchMedia("(prefers-color-scheme: dark)").matches) t = "dark";
+        if (t) r.setAttribute("data-theme", t);
+        if (localStorage.getItem("rb-contrast") === "high") r.setAttribute("data-contrast", "high");
+        var s = localStorage.getItem("rb-font"); if (s) r.style.setProperty("--font-size-base", s + "%");
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#login-main">Pular para o formulário</a>
+  <div class="login-page">
+    <main id="login-main" class="login-card">
+      <h1 style="font-size:1.8rem">Entrar no Rota Brasil</h1>
+      <p style="color:var(--text-muted)">Acesse sua conta para salvar destinos favoritos.</p>
+
+      <form id="form-login" novalidate>
+        <div class="field">
+          <label for="l-email">E-mail</label>
+          <input id="l-email" name="email" type="email" autocomplete="email" required aria-describedby="le-email">
+          <p class="error-msg" id="le-email" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="l-senha">Senha</label>
+          <div class="pw-wrap">
+            <input id="l-senha" name="senha" type="password" autocomplete="current-password" required aria-describedby="le-senha">
+            <button type="button" id="toggle-pw" aria-pressed="false" aria-controls="l-senha">Mostrar</button>
+          </div>
+          <p class="error-msg" id="le-senha" aria-live="polite"></p>
+        </div>
+        <button class="btn btn-accent" type="submit" style="width:100%; justify-content:center">Entrar</button>
+        <p class="form-status" id="login-status" role="status"></p>
+      </form>
+
+      <p style="margin-top:1.2rem; text-align:center"><a href="index.html">← Voltar para a página inicial</a></p>
+      <div class="tools" style="justify-content:center; margin-top:1rem" role="group" aria-label="Acessibilidade">
+        <button class="icon-btn" id="btn-theme" type="button" aria-pressed="false"><span aria-hidden="true">🌙</span><span class="visually-hidden">Modo escuro</span></button>
+        <button class="icon-btn" id="btn-contrast" type="button" aria-pressed="false"><span aria-hidden="true">🔆</span><span class="visually-hidden">Alto contraste</span></button>
+        <button class="icon-btn" id="btn-font-up" type="button"><span aria-hidden="true">A+</span><span class="visually-hidden">Aumentar fonte</span></button>
+        <button class="icon-btn" id="btn-font-down" type="button"><span aria-hidden="true">A−</span><span class="visually-hidden">Diminuir fonte</span></button>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
