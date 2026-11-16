@@ -21,7 +21,7 @@ Projeto acadêmico de desenvolvimento web (HTML, CSS e JavaScript puros, sem fra
 | Abas de pesquisa | Painel com abas Destinos / Passeios / Hospedagem no topo (`.search-box`) |
 | Seção de contato com formulário | `#contato`, com validação em JavaScript |
 | Carrossel | Seção "Galeria de paisagens" (`#galeria`) |
-| Imagens | Pasta `img/` (ilustrações SVG com texto alternativo) |
+| Imagens | Pasta `img/` (fotografias JPEG com texto alternativo) |
 | Cartões explicativos | Seção "Como planejar sua viagem" (`#dicas`) |
 | Modo escuro/claro | Botão na barra de acessibilidade |
 | Rodapé | `<footer class="site-footer">` |
@@ -38,13 +38,12 @@ rota-brasil/
 ├── script.js         # acessibilidade, abas, filtro, carrossel, formulários
 ├── README.md
 └── img/
-    ├── praia.svg
-    ├── chapada.svg
-    ├── amazonia.svg
-    ├── cidade-historica.svg
-    └── pantanal.svg
+    ├── praia.jpg
+    ├── chapada.jpg
+    ├── amazonia.jpg
+    ├── cidade-historica.jpg
+    └── pantanal.jpg
 ```
-
 ## 3. Construção passo a passo
 
 ### Passo 1 – Planejamento
@@ -66,10 +65,10 @@ Botões com `aria-pressed` alternam: modo claro/escuro, alto contraste, aumento/
 Implementadas com o padrão ARIA *Tabs*: `role="tablist"`, `role="tab"`, `role="tabpanel"`, `aria-selected` e `aria-controls`. O teclado funciona com ← → Home End. Cada aba tem um formulário que filtra os cartões por `data-*` (nome, região, tipo de experiência, faixa de orçamento). O resultado é anunciado por uma região `aria-live` ("3 destinos encontrados.").
 
 ### Passo 7 – Cartões
-Oito cartões `article` com imagem, etiqueta, título, texto e botão. Os atributos `data-nome`, `data-regiao`, `data-exp` e `data-orc` alimentam o filtro. A busca ignora acentos e maiúsculas (`normalize("NFD")`).
+Cinco cartões `article` com fotografia, etiqueta, título, texto e botão. Os atributos `data-nome`, `data-regiao`, `data-exp` e `data-orc` alimentam o filtro. A busca ignora acentos e maiúsculas (`normalize("NFD")`).
 
 ### Passo 8 – Carrossel acessível
-Quatro slides com `figure`/`figcaption`, botões anterior/próximo, indicadores e botão **Pausar** (WCAG 2.2.2). A reprodução automática para ao passar o mouse, ao receber foco e quando o usuário prefere movimento reduzido. As setas do teclado também navegam.
+Cinco slides com `figure`/`figcaption`, botões anterior/próximo, indicadores e botão **Pausar** (WCAG 2.2.2). A reprodução automática para ao passar o mouse, ao receber foco e quando o usuário prefere movimento reduzido. As setas do teclado também navegam.
 
 ### Passo 9 – Cartões explicativos
 Três cartões numerados com dicas de planejamento (época, orçamento, viagem consciente), cada um com cor de borda distinta, mas sem depender só da cor para transmitir informação.
@@ -135,8 +134,9 @@ git remote add origin https://github.com/SEU-USUARIO/rota-brasil.git
 git push -u origin main
 ```
 
-## 7. Limitações conhecidas
+## 8. Limitações conhecidas
 
-- As imagens são ilustrações SVG criadas para o projeto. em um site real seriam fotos com direitos de uso.
+- As fotografias foram fornecidas pelo autor apenas para fins educacionais. Antes de uso público, é preciso confirmar a origem e a licença de cada uma e incluir os créditos. A foto do Pantanal tem resolução baixa (739 × 415 px).
 - Formulário de contato e login não enviam dados a nenhum servidor.
+- Os dados de e-mail e telefone são fictícios.
 - Não foram feitos testes com leitores de tela reais.
