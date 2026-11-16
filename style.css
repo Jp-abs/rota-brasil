@@ -1,0 +1,270 @@
+/* ==========================================================
+   Rota Brasil – Folha de estilos
+   Paleta, tipografia, layout responsivo, modo claro/escuro
+   ========================================================== */
+
+/* ---------- 1. Tokens de design (variáveis CSS) ---------- */
+:root {
+  --font-size-base: 100%;
+
+  /* Modo claro */
+  --bg: #ffffff;
+  --surface: #f3f7f8;
+  --surface-2: #e4edf0;
+  --text: #14213d;
+  --text-muted: #44546a;
+  --primary: #0a5c7a;
+  --primary-contrast: #ffffff;
+  --accent: #b83c08;
+  --accent-contrast: #ffffff;
+  --green: #17704f;
+  --border: #b7c6cf;
+  --border-ui: #5f7482; /* bordas de campos e botões: 4,88:1 (WCAG 1.4.11) */
+  --focus: #7a2fd1;
+  --shadow: 0 2px 10px rgba(20, 33, 61, 0.12);
+  --radius: 14px;
+}
+
+:root[data-theme="dark"] {
+  --bg: #10161c;
+  --surface: #1a232c;
+  --surface-2: #24313d;
+  --text: #e8eef2;
+  --text-muted: #b4c2cd;
+  --primary: #5cc8e8;
+  --primary-contrast: #0b1319;
+  --accent: #ffa45c;
+  --accent-contrast: #1a0e04;
+  --green: #5fd3a0;
+  --border: #3b4b59;
+  --border-ui: #7c8d9b; /* 5,32:1 sobre o fundo escuro */
+  --focus: #ffd84d;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Alto contraste (acessibilidade) */
+:root[data-contrast="high"] {
+  --bg: #000000;
+  --surface: #000000;
+  --surface-2: #111111;
+  --text: #ffffff;
+  --text-muted: #ffffff;
+  --primary: #ffff00;
+  --primary-contrast: #000000;
+  --accent: #00ffff;
+  --accent-contrast: #000000;
+  --green: #00ff7f;
+  --border: #ffffff;
+  --border-ui: #ffffff;
+  --focus: #ff9d00;
+}
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: var(--font-size-base); scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3 { line-height: 1.25; margin: 0 0 0.5em; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: 1.2rem; }
+p  { margin: 0 0 1em; }
+a  { color: var(--primary); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+img, svg { max-width: 100%; display: block; }
+
+.container { width: min(1120px, 92%); margin-inline: auto; }
+section { padding: 3.5rem 0; }
+.section-title { text-align: center; margin-bottom: 2rem; }
+.section-title p { color: var(--text-muted); max-width: 60ch; margin-inline: auto; }
+
+/* Foco visível (WCAG 2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Link "pular para o conteúdo" (WCAG 2.4.1) */
+.skip-link {
+  position: absolute; left: 0.5rem; top: -4rem;
+  background: var(--primary); color: var(--primary-contrast);
+  padding: 0.6rem 1rem; border-radius: 8px; z-index: 100; font-weight: 700;
+}
+.skip-link:focus { top: 0.5rem; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- 3. Botões ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  min-height: 44px; padding: 0.6rem 1.2rem;
+  border: 2px solid transparent; border-radius: 999px;
+  font: inherit; font-weight: 700; cursor: pointer; text-decoration: none;
+  transition: transform 0.15s, filter 0.15s;
+}
+.btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.btn-primary { background: var(--primary); color: var(--primary-contrast); }
+.btn-accent  { background: var(--accent);  color: var(--accent-contrast); }
+.btn-outline { background: transparent; color: var(--text); border-color: var(--border-ui); }
+
+/* ---------- 4. Cabeçalho e navegação ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 0.7rem 0; flex-wrap: wrap;
+}
+.logo { display: flex; align-items: center; gap: 0.6rem; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; }
+.logo svg { width: 36px; height: 36px; }
+.nav-list { display: flex; gap: 0.3rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.nav-list a {
+  display: block; padding: 0.5rem 0.8rem; border-radius: 8px;
+  color: var(--text); text-decoration: none; font-weight: 600;
+}
+.nav-list a:hover { background: var(--surface-2); }
+
+.tools { display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; }
+.icon-btn {
+  min-width: 44px; min-height: 44px; border-radius: 10px;
+  border: 2px solid var(--border-ui); background: var(--surface); color: var(--text);
+  font: inherit; font-weight: 700; cursor: pointer;
+}
+.icon-btn:hover { background: var(--surface-2); }
+.icon-btn[aria-pressed="true"] { background: var(--primary); color: var(--primary-contrast); border-color: var(--primary); }
+
+/* ---------- 5. Hero e abas de pesquisa ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+  padding: 4rem 0 3rem;
+}
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem; align-items: center; }
+.hero p.lead { font-size: 1.15rem; color: var(--text-muted); }
+.eyebrow { color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem; }
+
+.search-box {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+}
+[role="tablist"] { display: flex; background: var(--surface-2); }
+[role="tab"] {
+  flex: 1; min-height: 48px; padding: 0.6rem; border: 0; background: transparent;
+  color: var(--text); font: inherit; font-weight: 700; cursor: pointer;
+  border-bottom: 4px solid transparent;
+}
+[role="tab"][aria-selected="true"] { background: var(--bg); border-bottom-color: var(--accent); }
+[role="tabpanel"] { padding: 1.2rem; }
+[role="tabpanel"][hidden] { display: none; }
+
+label { display: block; font-weight: 700; margin-bottom: 0.3rem; }
+input, select, textarea {
+  width: 100%; min-height: 44px; padding: 0.6rem 0.8rem;
+  font: inherit; color: var(--text); background: var(--bg);
+  border: 2px solid var(--border-ui); border-radius: 10px;
+}
+textarea { min-height: 130px; resize: vertical; }
+.field { margin-bottom: 1rem; }
+.hint { font-size: 0.9rem; color: var(--text-muted); margin-top: 0.25rem; }
+.error-msg { color: var(--accent); font-weight: 700; font-size: 0.9rem; margin-top: 0.25rem; min-height: 1.2em; }
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--accent); }
+.search-row { display: grid; grid-template-columns: 1fr auto; gap: 0.6rem; align-items: end; }
+
+/* ---------- 6. Carrossel ---------- */
+.carousel { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--surface-2); }
+.slides { display: flex; transition: transform 0.6s ease; }
+.slide { min-width: 100%; position: relative; }
+.slide img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
+.slide figcaption {
+  position: absolute; inset: auto 0 0 0; padding: 1.2rem 1.5rem;
+  background: rgba(10, 20, 30, 0.82); color: #ffffff;
+}
+.slide figcaption h3 { margin: 0 0 0.2rem; }
+.slide figcaption p { margin: 0; }
+.car-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%; border: 2px solid #fff;
+  background: rgba(10, 20, 30, 0.8); color: #fff; font-size: 1.4rem; cursor: pointer;
+}
+.car-btn:hover { background: #000; }
+.car-prev { left: 0.8rem; } .car-next { right: 0.8rem; }
+.car-dots { display: flex; justify-content: center; gap: 0.5rem; padding: 0.8rem; background: var(--surface); }
+.car-dot {
+  width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--primary);
+  background: transparent; cursor: pointer; padding: 0;
+}
+.car-dot[aria-current="true"] { background: var(--primary); }
+.car-pause { position: absolute; top: 0.8rem; right: 0.8rem; min-height: 40px; padding: 0 0.9rem; border-radius: 999px; border: 2px solid #fff; background: rgba(10,20,30,0.8); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+
+/* ---------- 7. Cartões ---------- */
+.grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-4px); }
+.card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.card-body { padding: 1.1rem 1.2rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.card-body p { color: var(--text-muted); flex: 1; }
+.tag {
+  align-self: flex-start; background: var(--primary); color: var(--primary-contrast);
+  padding: 0.15rem 0.7rem; border-radius: 999px; font-size: 0.8rem; font-weight: 800; margin-bottom: 0.6rem;
+}
+.no-results { text-align: center; padding: 2rem; color: var(--text-muted); }
+
+.info-card { padding: 1.5rem; border-left: 6px solid var(--accent); background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); }
+.info-card .num { font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; }
+.info-card:nth-child(2) { border-left-color: var(--primary); }
+.info-card:nth-child(2) .num { color: var(--primary); }
+.info-card:nth-child(3) { border-left-color: var(--green); }
+.info-card:nth-child(3) .num { color: var(--green); }
+
+/* ---------- 8. Contato ---------- */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2.5rem; }
+.form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+.form-status { margin-top: 1rem; padding: 0.8rem 1rem; border-radius: 10px; font-weight: 700; display: none; }
+.form-status.ok { display: block; background: var(--green); color: #fff; }
+:root[data-theme="dark"] .form-status.ok { color: #04170f; }
+.checkbox-row { display: flex; gap: 0.6rem; align-items: flex-start; }
+.checkbox-row input { width: 24px; min-height: 24px; margin-top: 0.2rem; }
+.checkbox-row label { font-weight: 400; margin: 0; }
+
+/* ---------- 9. Login ---------- */
+.login-page { min-height: 100vh; display: grid; place-items: center; background: linear-gradient(135deg, var(--surface), var(--surface-2)); padding: 1.5rem; }
+.login-card { width: min(440px, 100%); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
+.pw-wrap { position: relative; }
+.pw-wrap button { position: absolute; right: 4px; top: 4px; min-height: 36px; border: 0; background: var(--surface-2); color: var(--text); border-radius: 8px; padding: 0 0.7rem; cursor: pointer; font: inherit; font-weight: 700; }
+
+/* ---------- 10. Rodapé ---------- */
+.site-footer { background: var(--surface-2); border-top: 4px solid var(--accent); padding: 2.5rem 0 1.5rem; }
+.footer-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { margin-bottom: 0.4rem; }
+.copy { text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem; }
+
+/* ---------- 11. Responsividade ---------- */
+@media (max-width: 860px) {
+  .hero-grid, .contact-wrap { grid-template-columns: 1fr; }
+  .slide img { aspect-ratio: 4 / 3; }
+  .search-row { grid-template-columns: 1fr; }
+}
+
+/* Reduz movimento (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+:root[data-motion="reduced"] * { transition: none !important; animation: none !important; }
