@@ -7,7 +7,6 @@
   <title>Rota Brasil – Guia de turismo pelo Brasil</title>
   <link rel="stylesheet" href="style.css">
   <script>
-
     (function () {
       try {
         var r = document.documentElement;
@@ -150,65 +149,44 @@
       <div class="container">
         <div class="section-title">
           <h2 id="titulo-destinos">Destinos em destaque</h2>
-          <p>Oito lugares para começar a planejar a sua próxima viagem.</p>
+          <p>Cinco lugares para começar a planejar a sua próxima viagem.</p>
           <p id="status-busca" role="status" aria-live="polite" class="hint"></p>
         </div>
 
         <div class="grid" id="cards">
           <article class="card" data-nome="fernando de noronha" data-regiao="Nordeste" data-exp="praia" data-orc="$$$">
-            <img src="img/praia.svg" alt="Ilustração de praia com coqueiros ao pôr do sol" loading="lazy">
+            <img src="img/praia.jpg" alt="Praia de areia clara e mar azul-turquesa, com um morro rochoso ao fundo" loading="lazy">
             <div class="card-body"><span class="tag">Nordeste • Praia</span>
               <h3>Fernando de Noronha</h3>
               <p>Arquipélago com águas cristalinas, mergulho e golfinhos. Ideal para quem busca natureza preservada.</p>
               <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
           </article>
           <article class="card" data-nome="chapada dos veadeiros" data-regiao="Centro-Oeste" data-exp="natureza" data-orc="$$">
-            <img src="img/chapada.svg" alt="Ilustração de montanhas com cachoeira" loading="lazy">
+            <img src="img/chapada.jpg" alt="Cachoeira com várias quedas sobre rochas e uma piscina natural onde pessoas nadam" loading="lazy">
             <div class="card-body"><span class="tag">Centro-Oeste • Natureza</span>
               <h3>Chapada dos Veadeiros</h3>
               <p>Cachoeiras, cânions e trilhas no coração do Cerrado, a poucas horas de Brasília.</p>
               <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
           </article>
           <article class="card" data-nome="amazonia manaus" data-regiao="Norte" data-exp="natureza" data-orc="$$">
-            <img src="img/amazonia.svg" alt="Ilustração de floresta densa com rio" loading="lazy">
+            <img src="img/amazonia.jpg" alt="Vila ribeirinha com casas coloridas, barcos e palmeiras na margem de um rio" loading="lazy">
             <div class="card-body"><span class="tag">Norte • Natureza</span>
-              <h3>Amazônia (Manaus)</h3>
-              <p>Passeios de barco, encontro das águas e hospedagem em lodges na maior floresta tropical do mundo.</p>
+              <h3>Amazônia</h3>
+              <p>Passeios de barco, vilas ribeirinhas e hospedagem em lodges na maior floresta tropical do mundo.</p>
               <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
           </article>
           <article class="card" data-nome="ouro preto" data-regiao="Sudeste" data-exp="cultura" data-orc="$">
-            <img src="img/cidade-historica.svg" alt="Ilustração de casarios coloridos e igreja" loading="lazy">
+            <img src="img/cidade-historica.jpg" alt="Igreja barroca amarela e branca entre casarios coloniais e morros verdes" loading="lazy">
             <div class="card-body"><span class="tag">Sudeste • Cultura</span>
               <h3>Ouro Preto</h3>
               <p>Patrimônio da Humanidade, com arquitetura barroca, museus e ladeiras históricas.</p>
               <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
           </article>
           <article class="card" data-nome="pantanal" data-regiao="Centro-Oeste" data-exp="natureza" data-orc="$$$">
-            <img src="img/pantanal.svg" alt="Ilustração de lago com aves ao entardecer" loading="lazy">
+            <img src="img/pantanal.jpg" alt="Vista aérea de um rio e lagoas cercados por mata no Pantanal" loading="lazy">
             <div class="card-body"><span class="tag">Centro-Oeste • Natureza</span>
               <h3>Pantanal</h3>
               <p>Maior planície alagável do planeta, famosa pela observação de onças-pintadas e aves.</p>
-              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
-          </article>
-          <article class="card" data-nome="lencois maranhenses" data-regiao="Nordeste" data-exp="praia" data-orc="$$">
-            <img src="img/praia.svg" alt="Ilustração de litoral com dunas e mar" loading="lazy">
-            <div class="card-body"><span class="tag">Nordeste • Praia</span>
-              <h3>Lençóis Maranhenses</h3>
-              <p>Dunas brancas com lagoas de água doce que se formam na temporada de chuvas.</p>
-              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
-          </article>
-          <article class="card" data-nome="gramado" data-regiao="Sul" data-exp="cultura" data-orc="$$$">
-            <img src="img/cidade-historica.svg" alt="Ilustração de cidade serrana com casas coloridas" loading="lazy">
-            <div class="card-body"><span class="tag">Sul • Cultura</span>
-              <h3>Gramado</h3>
-              <p>Gastronomia, chocolate, festivais e clima de serra, ótimo para viagens em família.</p>
-              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
-          </article>
-          <article class="card" data-nome="paraty" data-regiao="Sudeste" data-exp="praia" data-orc="$$">
-            <img src="img/praia.svg" alt="Ilustração de baía com coqueiros" loading="lazy">
-            <div class="card-body"><span class="tag">Sudeste • Praia</span>
-              <h3>Paraty</h3>
-              <p>Centro histórico preservado, passeios de escuna e praias de águas calmas.</p>
               <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
           </article>
         </div>
@@ -227,21 +205,25 @@
         <div class="carousel" role="region" aria-roledescription="carrossel" aria-label="Galeria de paisagens do Brasil">
           <button class="car-pause" id="car-pause" type="button" aria-pressed="false">⏸ Pausar</button>
           <div class="slides" id="slides" aria-live="off">
-            <figure class="slide" role="group" aria-roledescription="slide" aria-label="1 de 4">
-              <img src="img/praia.svg" alt="Praia com coqueiros ao pôr do sol">
-              <figcaption><h3>Litoral nordestino</h3><p>Mar quente e pôr do sol inesquecível.</p></figcaption>
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="1 de 5">
+              <img src="img/praia.jpg" alt="Praia de areia clara e mar azul-turquesa em Fernando de Noronha">
+              <figcaption><h3>Litoral nordestino</h3><p>Mar transparente e areia clara.</p></figcaption>
             </figure>
-            <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 de 4">
-              <img src="img/chapada.svg" alt="Montanhas e cachoeira na Chapada">
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 de 5">
+              <img src="img/chapada.jpg" alt="Cachoeira com várias quedas na Chapada dos Veadeiros">
               <figcaption><h3>Chapadas e cachoeiras</h3><p>Trilhas para todos os níveis.</p></figcaption>
             </figure>
-            <figure class="slide" role="group" aria-roledescription="slide" aria-label="3 de 4">
-              <img src="img/amazonia.svg" alt="Floresta amazônica cortada por um rio">
-              <figcaption><h3>Floresta Amazônica</h3><p>Biodiversidade única no planeta.</p></figcaption>
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="3 de 5">
+              <img src="img/amazonia.jpg" alt="Vila ribeirinha com casas coloridas e barcos às margens de um rio">
+              <figcaption><h3>Rios e vilas da Amazônia</h3><p>Cultura e natureza lado a lado.</p></figcaption>
             </figure>
-            <figure class="slide" role="group" aria-roledescription="slide" aria-label="4 de 4">
-              <img src="img/pantanal.svg" alt="Lago do Pantanal com aves voando">
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="4 de 5">
+              <img src="img/pantanal.jpg" alt="Vista aérea de rio e lagoas no Pantanal">
               <figcaption><h3>Pantanal</h3><p>Safári de fauna a céu aberto.</p></figcaption>
+            </figure>
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="5 de 5">
+              <img src="img/cidade-historica.jpg" alt="Igreja barroca e casarios coloniais em Ouro Preto">
+              <figcaption><h3>Cidades históricas</h3><p>Arquitetura barroca e ladeiras de pedra.</p></figcaption>
             </figure>
           </div>
           <button class="car-btn car-prev" id="car-prev" type="button" aria-label="Slide anterior">‹</button>
@@ -327,7 +309,7 @@
     </section>
   </main>
 
-  <!-- ================= RODAPE ================= -->
+  <!-- ================= RODAPÉ ================= -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -349,7 +331,7 @@
           <p>Este site segue as diretrizes WCAG 2.2 nível AA e oferece modo escuro, alto contraste e ajuste de fonte.</p>
         </div>
       </div>
-      <p class="copy">© 2026 Rota Brasil. Projeto acadêmico – CEUB.</p>
+      <p class="copy">© 2026 Rota Brasil. Projeto acadêmico – CEUB. Fotos usadas apenas para fins educacionais.</p>
     </div>
   </footer>
 
