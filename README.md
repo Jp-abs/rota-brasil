@@ -129,7 +129,7 @@ git add script.js img && git commit -m "feat: abas, filtro, carrossel e acessibi
 git add login.html && git commit -m "feat: página de login"
 git add README.md && git commit -m "docs: README e análise de contraste"
 git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/rota-brasil.git
+git remote add origin https://github.com/Jp-abs/rota-brasil.git
 git push -u origin main
 ```
 
