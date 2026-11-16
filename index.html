@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rota Brasil – guia de turismo com destinos, dicas e roteiros pelo Brasil.">
+  <title>Rota Brasil – Guia de turismo pelo Brasil</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Aplica preferências salvas antes da renderização (evita "piscar" de tema) */
+    (function () {
+      try {
+        var r = document.documentElement;
+        var t = localStorage.getItem("rb-theme");
+        if (!t && window.matchMedia("(prefers-color-scheme: dark)").matches) t = "dark";
+        if (t) r.setAttribute("data-theme", t);
+        if (localStorage.getItem("rb-contrast") === "high") r.setAttribute("data-contrast", "high");
+        if (localStorage.getItem("rb-motion") === "reduced") r.setAttribute("data-motion", "reduced");
+        var s = localStorage.getItem("rb-font");
+        if (s) r.style.setProperty("--font-size-base", s + "%");
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <!-- ================= CABEÇALHO ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo" aria-label="Rota Brasil – página inicial">
+        <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <circle cx="20" cy="20" r="18" fill="var(--primary)"/>
+          <path d="M8 26 Q20 6 32 26" stroke="var(--accent)" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="20" cy="26" r="4" fill="var(--primary-contrast)"/>
+        </svg>
+        Rota Brasil
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#destinos">Destinos</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#dicas">Dicas</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="login.html">Entrar</a></li>
+        </ul>
+      </nav>
+
+      <!-- Aba / barra de acessibilidade -->
+      <div class="tools" role="group" aria-label="Ferramentas de acessibilidade">
+        <button class="icon-btn" id="btn-theme" type="button" aria-pressed="false" title="Alternar modo claro/escuro">
+          <span aria-hidden="true">🌙</span><span class="visually-hidden">Modo escuro</span>
+        </button>
+        <button class="icon-btn" id="btn-contrast" type="button" aria-pressed="false" title="Alto contraste">
+          <span aria-hidden="true">🔆</span><span class="visually-hidden">Alto contraste</span>
+        </button>
+        <button class="icon-btn" id="btn-font-up" type="button" title="Aumentar fonte">
+          <span aria-hidden="true">A+</span><span class="visually-hidden">Aumentar fonte</span>
+        </button>
+        <button class="icon-btn" id="btn-font-down" type="button" title="Diminuir fonte">
+          <span aria-hidden="true">A−</span><span class="visually-hidden">Diminuir fonte</span>
+        </button>
+        <button class="icon-btn" id="btn-motion" type="button" aria-pressed="false" title="Reduzir animações">
+          <span aria-hidden="true">🎞️</span><span class="visually-hidden">Reduzir animações</span>
+        </button>
+        <button class="icon-btn" id="btn-reset" type="button" title="Restaurar padrões">
+          <span aria-hidden="true">↺</span><span class="visually-hidden">Restaurar padrões de acessibilidade</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ================= HERO + ABAS DE PESQUISA ================= -->
+    <section class="hero" id="inicio" aria-labelledby="titulo-hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Turismo • Natureza • Cultura</p>
+          <h1 id="titulo-hero">Descubra o Brasil em cada rota</h1>
+          <p class="lead">Encontre destinos, planeje passeios e escolha onde se hospedar. Um guia simples, acessível e feito para todos os viajantes.</p>
+          <a class="btn btn-accent" href="#destinos">Explorar destinos</a>
+          <a class="btn btn-outline" href="#dicas">Ver dicas de viagem</a>
+        </div>
+
+        <div class="search-box">
+          <div role="tablist" aria-label="Tipos de pesquisa">
+            <button role="tab" id="tab-destinos" aria-controls="panel-destinos" aria-selected="true" tabindex="0">Destinos</button>
+            <button role="tab" id="tab-passeios" aria-controls="panel-passeios" aria-selected="false" tabindex="-1">Passeios</button>
+            <button role="tab" id="tab-hospedagem" aria-controls="panel-hospedagem" aria-selected="false" tabindex="-1">Hospedagem</button>
+          </div>
+
+          <div role="tabpanel" id="panel-destinos" aria-labelledby="tab-destinos">
+            <form class="search-form" data-filter="destinos" novalidate>
+              <div class="search-row">
+                <div class="field">
+                  <label for="q-nome">Nome do destino</label>
+                  <input id="q-nome" name="q" type="search" placeholder="Ex.: Paraty, Pantanal…">
+                </div>
+                <div class="field">
+                  <label for="q-regiao">Região</label>
+                  <select id="q-regiao" name="regiao">
+                    <option value="">Todas</option>
+                    <option>Norte</option><option>Nordeste</option><option>Centro-Oeste</option><option>Sudeste</option><option>Sul</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit">Pesquisar</button>
+            </form>
+          </div>
+
+          <div role="tabpanel" id="panel-passeios" aria-labelledby="tab-passeios" hidden>
+            <form class="search-form" data-filter="passeios" novalidate>
+              <div class="field">
+                <label for="q-exp">Tipo de experiência</label>
+                <select id="q-exp" name="exp">
+                  <option value="">Todas</option>
+                  <option value="praia">Praias</option>
+                  <option value="natureza">Natureza e trilhas</option>
+                  <option value="cultura">Cultura e história</option>
+                </select>
+                <p class="hint">Filtra os cartões de destinos logo abaixo.</p>
+              </div>
+              <button class="btn btn-primary" type="submit">Pesquisar</button>
+            </form>
+          </div>
+
+          <div role="tabpanel" id="panel-hospedagem" aria-labelledby="tab-hospedagem" hidden>
+            <form class="search-form" data-filter="hospedagem" novalidate>
+              <div class="field">
+                <label for="q-orc">Faixa de orçamento</label>
+                <select id="q-orc" name="orc">
+                  <option value="">Qualquer</option>
+                  <option value="$">$ – econômico</option>
+                  <option value="$$">$$ – intermediário</option>
+                  <option value="$$$">$$$ – premium</option>
+                </select>
+                <p class="hint">Mostra destinos conforme o custo médio da viagem.</p>
+              </div>
+              <button class="btn btn-primary" type="submit">Pesquisar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CARTÕES DE DESTINOS ================= -->
+    <section id="destinos" aria-labelledby="titulo-destinos">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="titulo-destinos">Destinos em destaque</h2>
+          <p>Oito lugares para começar a planejar a sua próxima viagem.</p>
+          <p id="status-busca" role="status" aria-live="polite" class="hint"></p>
+        </div>
+
+        <div class="grid" id="cards">
+          <article class="card" data-nome="fernando de noronha" data-regiao="Nordeste" data-exp="praia" data-orc="$$$">
+            <img src="img/praia.svg" alt="Ilustração de praia com coqueiros ao pôr do sol" loading="lazy">
+            <div class="card-body"><span class="tag">Nordeste • Praia</span>
+              <h3>Fernando de Noronha</h3>
+              <p>Arquipélago com águas cristalinas, mergulho e golfinhos. Ideal para quem busca natureza preservada.</p>
+              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
+          </article>
+          <article class="card" data-nome="chapada dos veadeiros" data-regiao="Centro-Oeste" data-exp="natureza" data-orc="$$">
+            <img src="img/chapada.svg" alt="Ilustração de montanhas com cachoeira" loading="lazy">
+            <div class="card-body"><span class="tag">Centro-Oeste • Natureza</span>
+              <h3>Chapada dos Veadeiros</h3>
+              <p>Cachoeiras, cânions e trilhas no coração do Cerrado, a poucas horas de Brasília.</p>
+              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
+          </article>
+          <article class="card" data-nome="amazonia manaus" data-regiao="Norte" data-exp="natureza" data-orc="$$">
+            <img src="img/amazonia.svg" alt="Ilustração de floresta densa com rio" loading="lazy">
+            <div class="card-body"><span class="tag">Norte • Natureza</span>
+              <h3>Amazônia (Manaus)</h3>
+              <p>Passeios de barco, encontro das águas e hospedagem em lodges na maior floresta tropical do mundo.</p>
+              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
+          </article>
+          <article class="card" data-nome="ouro preto" data-regiao="Sudeste" data-exp="cultura" data-orc="$">
+            <img src="img/cidade-historica.svg" alt="Ilustração de casarios coloridos e igreja" loading="lazy">
+            <div class="card-body"><span class="tag">Sudeste • Cultura</span>
+              <h3>Ouro Preto</h3>
+              <p>Patrimônio da Humanidade, com arquitetura barroca, museus e ladeiras históricas.</p>
+              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
+          </article>
+          <article class="card" data-nome="pantanal" data-regiao="Centro-Oeste" data-exp="natureza" data-orc="$$$">
+            <img src="img/pantanal.svg" alt="Ilustração de lago com aves ao entardecer" loading="lazy">
+            <div class="card-body"><span class="tag">Centro-Oeste • Natureza</span>
+              <h3>Pantanal</h3>
+              <p>Maior planície alagável do planeta, famosa pela observação de onças-pintadas e aves.</p>
+              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
+          </article>
+          <article class="card" data-nome="lencois maranhenses" data-regiao="Nordeste" data-exp="praia" data-orc="$$">
+            <img src="img/praia.svg" alt="Ilustração de litoral com dunas e mar" loading="lazy">
+            <div class="card-body"><span class="tag">Nordeste • Praia</span>
+              <h3>Lençóis Maranhenses</h3>
+              <p>Dunas brancas com lagoas de água doce que se formam na temporada de chuvas.</p>
+              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
+          </article>
+          <article class="card" data-nome="gramado" data-regiao="Sul" data-exp="cultura" data-orc="$$$">
+            <img src="img/cidade-historica.svg" alt="Ilustração de cidade serrana com casas coloridas" loading="lazy">
+            <div class="card-body"><span class="tag">Sul • Cultura</span>
+              <h3>Gramado</h3>
+              <p>Gastronomia, chocolate, festivais e clima de serra, ótimo para viagens em família.</p>
+              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
+          </article>
+          <article class="card" data-nome="paraty" data-regiao="Sudeste" data-exp="praia" data-orc="$$">
+            <img src="img/praia.svg" alt="Ilustração de baía com coqueiros" loading="lazy">
+            <div class="card-body"><span class="tag">Sudeste • Praia</span>
+              <h3>Paraty</h3>
+              <p>Centro histórico preservado, passeios de escuna e praias de águas calmas.</p>
+              <a class="btn btn-primary" href="#contato">Quero saber mais</a></div>
+          </article>
+        </div>
+        <p class="no-results" id="sem-resultados" hidden>Nenhum destino encontrado. Tente outros filtros.</p>
+      </div>
+    </section>
+
+    <!-- ================= CARROSSEL ================= -->
+    <section id="galeria" aria-labelledby="titulo-galeria" style="background: var(--surface)">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="titulo-galeria">Galeria de paisagens</h2>
+          <p>Use as setas, os pontos ou o teclado para navegar.</p>
+        </div>
+
+        <div class="carousel" role="region" aria-roledescription="carrossel" aria-label="Galeria de paisagens do Brasil">
+          <button class="car-pause" id="car-pause" type="button" aria-pressed="false">⏸ Pausar</button>
+          <div class="slides" id="slides" aria-live="off">
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="1 de 4">
+              <img src="img/praia.svg" alt="Praia com coqueiros ao pôr do sol">
+              <figcaption><h3>Litoral nordestino</h3><p>Mar quente e pôr do sol inesquecível.</p></figcaption>
+            </figure>
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 de 4">
+              <img src="img/chapada.svg" alt="Montanhas e cachoeira na Chapada">
+              <figcaption><h3>Chapadas e cachoeiras</h3><p>Trilhas para todos os níveis.</p></figcaption>
+            </figure>
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="3 de 4">
+              <img src="img/amazonia.svg" alt="Floresta amazônica cortada por um rio">
+              <figcaption><h3>Floresta Amazônica</h3><p>Biodiversidade única no planeta.</p></figcaption>
+            </figure>
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="4 de 4">
+              <img src="img/pantanal.svg" alt="Lago do Pantanal com aves voando">
+              <figcaption><h3>Pantanal</h3><p>Safári de fauna a céu aberto.</p></figcaption>
+            </figure>
+          </div>
+          <button class="car-btn car-prev" id="car-prev" type="button" aria-label="Slide anterior">‹</button>
+          <button class="car-btn car-next" id="car-next" type="button" aria-label="Próximo slide">›</button>
+          <div class="car-dots" id="car-dots" role="group" aria-label="Escolher slide"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CARTÕES EXPLICATIVOS ================= -->
+    <section id="dicas" aria-labelledby="titulo-dicas">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="titulo-dicas">Como planejar sua viagem</h2>
+          <p>Três passos para viajar com tranquilidade.</p>
+        </div>
+        <div class="grid">
+          <article class="info-card">
+            <p class="num" aria-hidden="true">1</p>
+            <h3>Escolha a época certa</h3>
+            <p>Cada região tem uma estação ideal. O Pantanal é melhor na seca (maio a setembro) e a Amazônia, na vazante dos rios.</p>
+          </article>
+          <article class="info-card">
+            <p class="num" aria-hidden="true">2</p>
+            <h3>Defina o orçamento</h3>
+            <p>Some transporte, hospedagem, alimentação e passeios. Reserve cerca de 10% como margem para imprevistos.</p>
+          </article>
+          <article class="info-card">
+            <p class="num" aria-hidden="true">3</p>
+            <h3>Viaje com consciência</h3>
+            <p>Respeite a natureza e as comunidades locais, não deixe lixo e prefira guias e hospedagens credenciados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section id="contato" aria-labelledby="titulo-contato" style="background: var(--surface)">
+      <div class="container contact-wrap">
+        <div>
+          <h2 id="titulo-contato">Fale com a gente</h2>
+          <p>Tem dúvidas sobre um destino ou quer ajuda para montar seu roteiro? Envie uma mensagem e responderemos em até 2 dias úteis.</p>
+          <ul>
+            <li>E-mail: contato@rotabrasil.example</li>
+            <li>Telefone: (61) 0000-0000</li>
+            <li>Atendimento: segunda a sexta, 9h às 18h</li>
+          </ul>
+        </div>
+
+        <form class="form-card" id="form-contato" novalidate>
+          <div class="field">
+            <label for="c-nome">Nome completo</label>
+            <input id="c-nome" name="nome" type="text" autocomplete="name" required aria-describedby="e-nome">
+            <p class="error-msg" id="e-nome" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="c-email">E-mail</label>
+            <input id="c-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+            <p class="error-msg" id="e-email" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="c-assunto">Assunto</label>
+            <select id="c-assunto" name="assunto">
+              <option>Dúvida sobre destino</option>
+              <option>Ajuda com roteiro</option>
+              <option>Sugestão</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="c-msg">Mensagem</label>
+            <textarea id="c-msg" name="msg" required aria-describedby="e-msg"></textarea>
+            <p class="error-msg" id="e-msg" aria-live="polite"></p>
+          </div>
+          <div class="field checkbox-row">
+            <input id="c-aceite" name="aceite" type="checkbox" required aria-describedby="e-aceite">
+            <label for="c-aceite">Concordo em receber uma resposta por e-mail (LGPD).</label>
+          </div>
+          <p class="error-msg" id="e-aceite" aria-live="polite"></p>
+          <button class="btn btn-accent" type="submit">Enviar mensagem</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2 style="font-size:1.2rem">Rota Brasil</h2>
+          <p>Guia de turismo criado como projeto acadêmico de desenvolvimento web.</p>
+        </div>
+        <nav aria-label="Links do rodapé">
+          <h2 style="font-size:1.2rem">Navegue</h2>
+          <ul>
+            <li><a href="#destinos">Destinos</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#dicas">Dicas</a></li>
+            <li><a href="login.html">Entrar</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 style="font-size:1.2rem">Acessibilidade</h2>
+          <p>Este site segue as diretrizes WCAG 2.2 nível AA e oferece modo escuro, alto contraste e ajuste de fonte.</p>
+        </div>
+      </div>
+      <p class="copy">© 2026 Rota Brasil. Projeto acadêmico – CEUB.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
