@@ -1,4 +1,4 @@
-/* ==========================================================
+* ==========================================================
    Rota Brasil – Folha de estilos
    Paleta, tipografia, layout responsivo, modo claro/escuro
    ========================================================== */
@@ -268,3 +268,9 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 :root[data-motion="reduced"] * { transition: none !important; animation: none !important; }
+
+/* ---------- 12. Ajustes ---------- */
+.slide { margin: 0; }                       /* remove margem padrão do <figure> */
+.card[hidden] { display: none; }            /* garante que o filtro esconda os cartões */
+#cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+#cards .card { flex: 0 1 calc(33.333% - 1rem); min-width: 260px; }
