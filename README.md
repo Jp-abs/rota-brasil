@@ -4,14 +4,13 @@ Projeto acadêmico de desenvolvimento web (HTML, CSS e JavaScript puros, sem fra
 
 ## Sumário
 
-1. [Visão geral](#1-visão-geral)
-2. [Estrutura de pastas](#2-estrutura-de-pastas)
-3. [Como executar](#3-como-executar)
-4. [Construção passo a passo](#4-construção-passo-a-passo)
-5. [Paletas de cores e contraste](#5-paletas-de-cores-e-contraste)
-6. [Checklist WCAG aplicado](#6-checklist-wcag-aplicado)
-7. [Versionamento com GitHub](#7-versionamento-com-github)
-8. [Limitações conhecidas](#8-limitações-conhecidas)
+1. [Visão geral]
+2. [Estrutura de pastas]
+3. [Construção passo a passo]
+4. [Paletas de cores e contraste]
+5. [Checklist WCAG aplicado]
+6. [Versionamento com GitHub]
+7. [Limitações conhecidas]
 
 ## 1. Visão geral
 
